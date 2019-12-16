@@ -5,7 +5,7 @@ let list = [{
     },
     {
         id: 1, 
-        statement: "React is a web application framework for Node.js.",
+        statement: "React is a Javascript library for building user interfaces",
         mastered: false 
     }];
 

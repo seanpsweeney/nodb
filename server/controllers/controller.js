@@ -1,30 +1,27 @@
 let list = [{
         id: 0,
         statement: "HTML stands for HyperText Markup Language.",
-        answer: true
+        mastered: false
     },
     {
         id: 1, 
         statement: "React is a web application framework for Node.js.",
-        answer: false
-    },
-    {
-        id: 2,
-        statement: "Pigeons wear cowboy hats.",
-        answer: true
+        mastered: false 
     }];
 
-let id = 3;
+let id = 2;
 
 module.exports = {
     getList: (req, res) => {
         res.status(200).send(list)
     },
     addStatement: (req, res) => {
-        const {statement, answer} = req.body
-        list.push({statement, answer, id})
-        id++
-        res.status(200).send(list)
+        const {newStatement} = req.body;
+        newStatement.mastered = false;
+        newStatement.id = id;
+        id++;
+        list.push(newStatement);
+        res.status(200).send(list);
     },
     updateStatement: (req, res) => {
         const updatedInfo = req.body;

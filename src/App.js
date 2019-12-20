@@ -18,26 +18,38 @@ class App extends Component {
   }
 
   componentDidMount() { 
-    axios.get('/api/list').then(res => {
-      this.setState({ list: res.data })
+    axios
+      .get('/api/list')
+      .then(res => {
+        this.setState({ list: res.data })
+      .catch(err => console.log(err)) 
     });
   }
 
   addStatement(newStatement) {
-    axios.post('/api/list', {newStatement}).then(res => {
-      this.setState({list: res.data})
+    axios
+      .post('/api/list', {newStatement})
+      .then(res => {
+        this.setState({ list: res.data })
+      .catch(err => console.log(err)) 
     });
   }
 
   updateStatement(updatedInfo, id) {
-    axios.put(`/api/list/${id}`, {updatedInfo}).then(res => {
-      this.setState({list: res.data})
+    axios
+      .put(`/api/list/${id}`, {updatedInfo})
+      .then(res => {
+        this.setState({ list: res.data })
+      .catch(err => console.log(err)) 
     });
   }
 
   deleteStatement(id) {
-    axios.delete(`/api/list/${id}`, {id}).then( res => {
-      this.setState({list: res.data})
+    axios
+    .delete(`/api/list/${id}`, {id})
+    .then( res => {
+      this.setState({ list: res.data })
+    .catch(err => console.log(err)) 
     });
   }
 

@@ -15,6 +15,7 @@ module.exports = {
     getList: (req, res) => {
         res.status(200).send(list)
     },
+
     addStatement: (req, res) => {
         const {newStatement} = req.body;
         newStatement.mastered = false;
@@ -23,6 +24,7 @@ module.exports = {
         list.push(newStatement);
         res.status(200).send(list);
     },
+
     updateStatement: (req, res) => {
         const updatedInfo = req.body;
         const {id} = req.params;
@@ -31,6 +33,7 @@ module.exports = {
         list[index] = updatedObj;
         res.status(200).send(list)
     },
+    
     delete: (req, res) => {
         const {id} = req.params;
         const listIndex = list.findIndex(e => e.id === +id);
